@@ -12,6 +12,6 @@ pipeline {
                 sh 'docker push alexpmbet/trg-python:latest'
             }
         }
-      
+
     }
 }
