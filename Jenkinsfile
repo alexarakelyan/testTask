@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-
-             script {
+                script {
                     dockerImage = docker.build "alexpmbet/trg-python:latest"
                 }
             }
@@ -19,6 +18,5 @@ pipeline {
                 }
             }
         }
-
     }
 }

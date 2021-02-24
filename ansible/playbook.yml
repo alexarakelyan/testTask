@@ -1,0 +1,13 @@
+---
+
+- hosts: 'python'
+  tasks:
+    - name: "Create app directory if needed"
+      file: "path={{ flask_directory }}/conf state=directory"
+    - name: "copy docker-compose to app's server"
+      copy:
+        src: "{{ docker_compose_dir }}"
+        dest: "{{ flask_directory }}"
+        owner: "ubuntu"
+        group: "ubuntu"
+        mode: '0644'

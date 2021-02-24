@@ -1,0 +1,4 @@
+---
+
+docker_compose_dir: "{{ playbook_dir }}/../docker-compose.yml"
+flask_directory: "/home/ubuntu/test_task"
