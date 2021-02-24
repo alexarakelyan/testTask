@@ -13,7 +13,7 @@ pipeline {
         stage('Push') {
             steps {
                 script {
-                    docker.withRegistry( 'alexpmbet/trg-python', 'dockerhub' ) {
+                    docker.withRegistry( 'https://registry.hub.docker.com', 'dockerhub' ) {
                         dockerImage.push()
                     }
                 }
