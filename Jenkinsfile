@@ -7,7 +7,7 @@ pipeline {
                 sh 'docker build -t alexpmbet/trg-python:latest .'
             }
         }
-        stage('Test') {
+        stage('Push') {
             steps {
                 sh 'docker push alexpmbet/trg-python:latest'
             }
