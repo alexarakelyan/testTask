@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build alexpmbet/trg-python:latest .'
+                sh 'docker build -t alexpmbet/trg-python:latest .'
             }
         }
         stage('Test') {
