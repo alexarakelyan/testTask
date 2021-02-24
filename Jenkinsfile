@@ -4,12 +4,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t alexpmbet/trg-python:latest .'
+
+             script {
+                    dockerImage = docker.build 'alexpmbet/trg-python:latest'
+                }
             }
         }
         stage('Push') {
             steps {
-                sh 'docker push alexpmbet/trg-python:latest'
+                script {
+                    docker.withRegistry( 'alexpmbet/trg-python', 'dockerhub' ) {
+                        dockerImage.push()
+                    }
             }
         }
 
