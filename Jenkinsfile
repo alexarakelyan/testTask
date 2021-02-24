@@ -18,5 +18,12 @@ pipeline {
                 }
             }
         }
+        stage('provision') {
+            steps {
+                script {
+                    sh 'ansible-playbook ansible/playbook.yml'
+                }
+            }
+        }
     }
 }
