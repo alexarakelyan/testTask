@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building ....'
+                sh 'docker build alexpmbet/trg-python:latest .'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'docker push alexpmbet/trg-python:latest'
             }
         }
         stage('Deploy') {
