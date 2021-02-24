@@ -12,10 +12,6 @@ pipeline {
                 sh 'docker push alexpmbet/trg-python:latest'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+      
     }
 }
