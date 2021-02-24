@@ -6,7 +6,7 @@ pipeline {
             steps {
 
              script {
-                    dockerImage = docker.build 'alexpmbet/trg-python:latest'
+                    dockerImage = docker.build "alexpmbet/trg-python:latest"
                 }
             }
         }
@@ -16,6 +16,7 @@ pipeline {
                     docker.withRegistry( 'alexpmbet/trg-python', 'dockerhub' ) {
                         dockerImage.push()
                     }
+                }
             }
         }
 
