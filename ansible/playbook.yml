@@ -6,7 +6,6 @@
       become: "yes"
       docker_image:
         name: "{{ docker_image_name }}"
-        path: "{{ flask_directory }}"
         source: "pull"
     - name: "Create app directory if needed"
       file: "path={{ flask_directory }} state=directory"
@@ -18,4 +17,6 @@
         group: "ubuntu"
         mode: '0644'
     - name: "Up docker compose"
-      command: "docker-compose up -f {{ flask_directory }}/docker-compose.yml -d"
+      command: "docker-compose up -d"
+      args:
+        chdir: "{{ flask_directory }}"
