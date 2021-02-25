@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                   dockerImage.withRun {c ->
-                    sh "python3 hello_world.test.py"
+                    sh "docker-compose up -d"
                   }
                 }
             }
@@ -21,7 +21,18 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh "python3 hello_world.test.py"
+                    try {
+                        sh "python3 hello_world.test.py"
+                    } catch (err) {
+                        echo err.getMessage()
+                    }
+                }
+            }
+        }
+        stage('shut down image') {
+            steps {
+                script {
+                    sh "docker-compose down"
                 }
             }
         }

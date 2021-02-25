@@ -2,6 +2,6 @@
 version: "3.9"
 services:
   server:
-    image: "alexpmbet/trg-python:latest"
+    image: "alexpmbet/trg-python:staging"
     ports:
       - "127.0.0.1:8080:5000"
