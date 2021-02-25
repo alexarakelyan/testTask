@@ -24,7 +24,9 @@ pipeline {
                     try {
                         sh "python3 hello_world.test.py"
                     } catch (err) {
-                        echo err.getMessage()
+                        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                            echo err.getMessage()
+                        }
                     }
                 }
             }
