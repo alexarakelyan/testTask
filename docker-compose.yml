@@ -4,4 +4,4 @@ services:
   server:
     image: "alexpmbet/trg-python:staging"
     ports:
-      - "127.0.0.1:8081:5000"
+      - "127.0.0.1:8088:5000"
