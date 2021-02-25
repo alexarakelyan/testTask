@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                   dockerImage.withRun {c ->
-                    sh './test-with-local-db'
+                    sh "python3 hello_world.test.py"
                   }
                 }
             }
