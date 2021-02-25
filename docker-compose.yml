@@ -1,5 +1,7 @@
 ---
 version: "3.9"
 services:
-  web:
-    image: alexpmbet/trg-python:latest
+  server:
+    image: "alexpmbet/trg-python:latest"
+    ports:
+      - "8080:8080"

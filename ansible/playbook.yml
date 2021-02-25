@@ -2,8 +2,14 @@
 
 - hosts: 'python'
   tasks:
+    - name: "Pull Image from DockerHub"
+      become: "yes"
+      docker_image:
+        name: "{{ docker_image_name }}"
+        path: "{{ flask_directory }}"
+        source: "pull"
     - name: "Create app directory if needed"
-      file: "path={{ flask_directory }}/conf state=directory"
+      file: "path={{ flask_directory }} state=directory"
     - name: "copy docker-compose to app's server"
       copy:
         src: "{{ docker_compose_dir }}"
@@ -11,3 +17,5 @@
         owner: "ubuntu"
         group: "ubuntu"
         mode: '0644'
+    - name: "Up docker compose"
+      command: "docker-compose up -f {{ flask_directory }}/docker-compose.yml -d"

@@ -1,6 +1,9 @@
-FROM python:3.6
-COPY . /hello_world
-WORKDIR /hello_world
+FROM  python:3.7-alpine
+WORKDIR /app
 RUN pip install -U flask
-ENTRYPOINT ["python"]
-CMD ["hello_world.py"]
+RUN apk add --no-cache gcc musl-dev linux-headers
+ENV FLASK_APP=hello_world.py
+ENV FLASK_RUN_HOST=0.0.0.0
+COPY . /app
+EXPOSE 8080
+CMD ["flask", "run"]

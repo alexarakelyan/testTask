@@ -2,3 +2,6 @@
 
 docker_compose_dir: "{{ playbook_dir }}/../docker-compose.yml"
 flask_directory: "/home/ubuntu/test_task"
+
+#docker image info
+docker_image_name: "alexpmbet/trg-python"
