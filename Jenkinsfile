@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh "python3 hello_world.test.py"
+                        sh "python3 test.py"
                     } catch (err) {
                         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                             echo err.getMessage()
