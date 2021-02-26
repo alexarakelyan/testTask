@@ -26,6 +26,7 @@ pipeline {
                     } catch (err) {
                         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                             echo err.getMessage()
+                            exit 1
                         }
                     }
                 }
